@@ -1,68 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dating app registration form</title>
-  </head>
-  <body>
-    <form action="/submit" method="post">
-      <!-- Name -->
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
-      <br /><br />
 
-      <!-- Email -->
-      <label for="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="user@domain.com"
-        required
-      />
-      <br /><br />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dating app registration form</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
-      <!-- Password -->
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
-      <br /><br />
+<body>
 
-      <!-- Date of Birth -->
-      <label for="dateofbirth">Date of Birth:</label>
-      <input type="date" id="dateofbirth" name="dateofbirth" required />
-      <br /><br />
+  <form action="#" method="post" class="registration-form">
+    <h1>Register in order to meet your soulmate!</h1>
 
-      <!-- Gender -->
+    <div class="form-sections">
+      <!-- Left column -->
       <fieldset>
-        <legend>Gender:</legend>
-        <label for="male">
-          <input type="radio" id="male" name="gender" value="male" required />
-          Male
-        </label>
-        <label for="female">
-          <input
-            type="radio"
-            id="female"
-            name="gender"
-            value="female"
-            required
-          />
-          Female
-        </label>
-      </fieldset>
-      <br />
+        <legend>Sign Up</legend>
 
-      <!-- Preferences -->
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="" selected disabled>Select...</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="other">Other</option>
+        </select>
+      </fieldset>
+
+      <!-- Right column -->
       <fieldset>
-        <legend>Preferences:</legend>
-        <br />
-        <label for="p1">Men</label>
-        <input type="checkbox" id="p1" name="p1" value="p1" />
-      </fieldset>
-      <br /><br />
+        <legend>Personal information</legend>
 
-      <input type="submit" value="Register" />
-    </form>
-  </body>
+        <div class="two-cols">
+          <div>
+            <label for="prefer">Who do you prefer?</label>
+            <select id="prefer" name="prefer" required>
+              <option value="" selected disabled>Select...</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="looking">What are you looking for?</label>
+            <select id="looking" name="looking" required>
+              <option value="" selected disabled>Select...</option>
+              <option value="longterm">Long-term relationship</option>
+              <option value="friendship">Friendship</option>
+              <option value="casual">Casual dating</option>
+              <option value="undecided">Undecided</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="two-cols">
+          <div>
+            <label for="agepref">Age preference</label>
+            <input type="text" id="agepref" name="agepref">
+          </div>
+
+          <div>
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location">
+          </div>
+        </div>
+
+        <label for="bio">Biography</label>
+        <textarea id="bio" name="bio" rows="3"></textarea>
+
+        <div class="two-cols">
+          <fieldset class="interests">
+            <legend>Interests</legend>
+            <label><input type="checkbox" name="interests" value="music"> Music</label>
+            <label><input type="checkbox" name="interests" value="sports"> Sports</label>
+            <label><input type="checkbox" name="interests" value="travel"> Travel</label>
+            <label><input type="checkbox" name="interests" value="reading"> Reading</label>
+            <label><input type="checkbox" name="interests" value="cooking"> Cooking</label>
+            <label><input type="checkbox" name="interests" value="gaming"> Gaming</label>
+            <label><input type="checkbox" name="interests" value="art"> Art</label>
+          </fieldset>
+
+          <fieldset class="notifications">
+            <legend>Notifications</legend>
+            <label><input type="checkbox" name="notifications" value="email-updates"> Receive email updates</label>
+            <label><input type="checkbox" name="notifications" value="match-notifications"> Receive match
+              notifications</label>
+            <label><input type="checkbox" name="notifications" value="promotional-offers"> Receive promotional
+              offers</label>
+          </fieldset>
+        </div>
+      </fieldset>
+    </div>
+
+    <button type="submit">Confirm</button>
+  </form>
+</body>
+
 </html>
