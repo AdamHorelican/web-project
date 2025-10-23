@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dating app registration form</title>
+  <title>Dating App – Sign Up</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
   <form action="#" method="post" class="registration-form">
@@ -19,20 +17,20 @@
         <legend>Sign Up</legend>
 
         <label for="fullname">Full Name</label>
-        <input type="text" id="fullname" name="fullname" required>
+        <input type="text" id="fullname" name="fullname" placeholder="Cornel Negru" pattern="[A-Za-zÀ-ž\s\-]+" title="Only letters, spaces, and hyphens allowed" required>
 
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="cornel@example.com" required>
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" pattern="(?=.*[A-Z]).{8,}" title="Password must be at least 8 characters long and contain at least one uppercase letter" required>
 
         <label for="dob">Date of Birth</label>
         <input type="date" id="dob" name="dob" required>
 
         <label for="gender">Gender</label>
         <select id="gender" name="gender" required>
-          <option value="" selected disabled>Select...</option>
+          <option value="" selected disabled>Select gender...</option>
           <option value="female">Female</option>
           <option value="male">Male</option>
           <option value="other">Other</option>
@@ -41,23 +39,24 @@
 
       <!-- Right column -->
       <fieldset>
-        <legend>Personal information</legend>
+        <legend>Personal Information</legend>
 
         <div class="two-cols">
           <div>
             <label for="prefer">Who do you prefer?</label>
             <select id="prefer" name="prefer" required>
-              <option value="" selected disabled>Select...</option>
+              <option value="" selected disabled>Select preference...</option>
               <option value="female">Female</option>
               <option value="male">Male</option>
-              <option value="other">Other</option>
+              <option value="nonbinary">Non-binary</option>
+              <option value="any">Any</option>
             </select>
           </div>
 
           <div>
             <label for="looking">What are you looking for?</label>
             <select id="looking" name="looking" required>
-              <option value="" selected disabled>Select...</option>
+              <option value="" selected disabled>Select type...</option>
               <option value="longterm">Long-term relationship</option>
               <option value="friendship">Friendship</option>
               <option value="casual">Casual dating</option>
@@ -68,18 +67,18 @@
 
         <div class="two-cols">
           <div>
-            <label for="agepref">Age preference</label>
-            <input type="text" id="agepref" name="agepref">
+            <label for="agepref">Age Preference</label>
+            <input type="number" id="agepref" name="agepref" placeholder="21" min="18" max="99">
           </div>
 
           <div>
             <label for="location">Location</label>
-            <input type="text" id="location" name="location">
+            <input type="text" id="location" name="location" placeholder="Horsens" pattern="[A-Za-zÀ-ž\s\-]+" title="Letters, spaces, and hyphens only">
           </div>
         </div>
 
         <label for="bio">Biography</label>
-        <textarea id="bio" name="bio" rows="3"></textarea>
+        <textarea id="bio" name="bio" rows="3" maxlength="250" placeholder="Write a short bio (max 250 characters)"></textarea>
 
         <div class="two-cols">
           <fieldset class="interests">
@@ -96,10 +95,8 @@
           <fieldset class="notifications">
             <legend>Notifications</legend>
             <label><input type="checkbox" name="notifications" value="email-updates"> Receive email updates</label>
-            <label><input type="checkbox" name="notifications" value="match-notifications"> Receive match
-              notifications</label>
-            <label><input type="checkbox" name="notifications" value="promotional-offers"> Receive promotional
-              offers</label>
+            <label><input type="checkbox" name="notifications" value="match-notifications"> Receive match notifications</label>
+            <label><input type="checkbox" name="notifications" value="promotional-offers"> Receive promotional offers</label>
           </fieldset>
         </div>
       </fieldset>
@@ -107,6 +104,6 @@
 
     <button type="submit">Confirm</button>
   </form>
-</body>
 
+</body>
 </html>
