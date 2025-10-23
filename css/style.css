@@ -4,7 +4,42 @@ body {
     height: 100vh;
 background: #005F72;
 background: linear-gradient(90deg, rgba(0, 95, 114, 1) 0%, rgba(6, 180, 214, 1) 100%);;
+color: white;
 }
+
+.form-sections{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5rem;
+    margin: 3rem auto;
+    background-color: darkblue;
+    border-radius: 25px;
+    width: 80%;
+
+}
+
+
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+  
+}
+
+fieldset {
+    border: none;
+    
+    
+}
+
+.right {
+    display: grid;
+
+}
+
+
+
+
 
 
 
