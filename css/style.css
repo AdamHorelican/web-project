@@ -1,62 +1,210 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Page background and text */
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-background: #005F72;
-background: linear-gradient(90deg, rgba(0, 95, 114, 1) 0%, rgba(6, 180, 214, 1) 100%);;
-color: white;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #005f72 0%, #06b4d6 100%);
+  color: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
 }
+
+/* Page width */
+main {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 1rem;
+}
+
+/* Big title at the top */
+
 h1 {
-    font-size: 56px;
-    text-align: center;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  text-align: center;
+  margin: 1.5rem 0;
+  letter-spacing: 0.02em;
 }
 
-.form-sections{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 2rem;
-    margin: 3rem auto;
-    background-color: #004856;
-    border-radius: 25px;
-    width: 80%;
+/* --- FORM LAYOUT --- */
+/* The form container */
 
+.registration-form {
+  width: 100%;
 }
 
-.legendTitle{
-    text-align: center;
-    font-size: 36px;
-    
+/* Dark box with two columns */
+.form-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin: 3rem auto 1.5rem;
+  background: rgba(0, 72, 86, 0.9);
+  border-radius: 25px;
+  width: 80%;
+  box-sizing: border-box;
 }
 
+/* Soft panel inside each column */
+.card {
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.5rem 1.5rem 1.25rem;
+  backdrop-filter: blur(6px);
+}
+
+/* Panel title */
+.legendTitle {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+/* --- Fields and inputs --- */
+/* Space under each field */
+.field {
+  margin-bottom: 1rem;
+}
+
+/* Text above inputs */
 label {
-    display: block;
-    margin-bottom: 0.5rem;
-  
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
 }
 
-fieldset {
-    border: none;
-    
-    
+/* Make inputs fill the row (not the radios/checkboxes) */
+input:not([type="radio"]):not([type="checkbox"]),
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.95);
+  color: #053847;
+  font: inherit;
 }
+
+/* Range slider design */
+input[type="range"] {
+  width: 100%;
+  background: transparent;
+  accent-color: #00b4db;
+}
+
+/* Put radio/checkbox next to its text */
+.subgroup label,
+.interests label,
+.notifications label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 400;
+}
+
+.subgroup input[type="radio"],
+.interests input[type="checkbox"],
+.notifications input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+/* --- Right side layout --- */
+/* Right column grid */
 
 .right {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
 }
+
 .biography {
-  grid-column: 1 / -1; 
+  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
 }
 
-
-input[type="range"] {
-  width: 70%;
-  accent-color: #00b4db; 
+.interests,
+.notifications {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.5rem;
 }
 
+/* Yellow outline when selected */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(255, 226, 135, 0.9);
+  outline-offset: 2px;
+}
 
+/* Red border when not ok */
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border-color: rgba(255, 78, 78, 0.9);
+}
 
+/* Green border when ok */
+input:valid,
+select:valid,
+textarea:valid {
+  border-color: rgba(110, 219, 158, 0.7);
+}
 
+/* Submit button */
+/* Area for the button */
+.form-actions {
+  text-align: center;
+  margin-top: 1.5rem;
+}
 
+/* Button design */
+.form-actions button {
+  background: #ffe287;
+  color: #004856;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.05s ease-in, box-shadow 0.05s ease-in;
+}
+
+/* Effect when hovering or focusing */
+.form-actions button:hover,
+.form-actions button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Media Queries */
+@media (max-width: 950px) {
+  .form-sections {
+    grid-template-columns: 1fr;
+    padding: 1.2rem;
+    width: 90%;
+  }
+  .right {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  main {
+    padding: 0.5rem;
+  }
+  .card {
+    padding: 1rem;
+  }
+}
