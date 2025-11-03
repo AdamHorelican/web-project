@@ -45,7 +45,7 @@ Built for the **WEB1 Course Assignment 2**, this project focuses on usability, a
 - @cornieeel  
 - @yousufhassan-prog  
 - @2000nrss
-- @claudio
+- @Clodix28
 
 
 ---
