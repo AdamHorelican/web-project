@@ -19,7 +19,7 @@
 
               <div class="field">
                 <label for="fullname"
-                  >Full Name <span class="req">*</span></label
+                  >Full Name :<span class="req">*</span></label
                 >
                 <input
                   type="text"
@@ -34,7 +34,7 @@
 
               <div class="field">
                 <label for="email"
-                  >Email Address <span class="req">*</span></label
+                  >Email Address : <span class="req">*</span></label
                 >
                 <input
                   type="email"
@@ -47,7 +47,21 @@
 
               <div class="field">
                 <label for="password"
-                  >Password <span class="req">*</span></label
+                  >Password : <span class="req">*</span></label
+                >
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  pattern="(?=.*[A-Z]).{8,}"
+                  title="Password must be at least 8 characters and include one uppercase letter"
+                  required
+                />
+              </div>
+
+                            <div class="field">
+                <label for="password"
+                  >Repeat password : <span class="req">*</span></label
                 >
                 <input
                   type="password"
@@ -61,7 +75,7 @@
 
               <div class="field">
                 <label for="dob"
-                  >Date of Birth <span class="req">*</span></label
+                  >Date of Birth : <span class="req">*</span></label
                 >
                 <input type="date" id="dob" name="dob" required />
               </div>
@@ -98,7 +112,7 @@
 
               <div class="field">
                 <label for="prefer"
-                  >Who do you prefer? <span class="req">*</span></label
+                  >Who do you prefer ? <span class="req">*</span></label
                 >
                 <select id="prefer" name="prefer" required>
                   <option value="" disabled selected>
@@ -113,7 +127,7 @@
 
               <div class="field">
                 <label for="looking"
-                  >What are you looking for? <span class="req">*</span></label
+                  >Looking for : <span class="req">*</span></label
                 >
                 <select id="looking" name="looking" required>
                   <option value="" disabled selected>Select type...</option>
@@ -124,20 +138,24 @@
                 </select>
               </div>
 
-              <div class="field" style="grid-column: 1 / -1">
-                <label for="agepref">Age preference (18–90)</label>
-                <input
-                  type="range"
-                  id="agepref"
-                  name="agepref"
-                  min="18"
-                  max="90"
-                  value="18"
-                />
-              </div>
+<div class="field" style="grid-column: 1 / -1">
+  <label for="agepref">Age preference (18–90) :</label>
+  <div class="range-wrapper">
+    <input
+      type="range"
+      id="agepref"
+      name="agepref"
+      min="18"
+      max="90"
+      value="18"
+      oninput="this.style.setProperty('--range-progress', ((this.value - this.min) / (this.max - this.min) * 100) + '%'); this.nextElementSibling.value=this.value;"
+    />
+    <output for="agepref">18</output>
+  </div>
+</div>
 
               <div class="field">
-                <label for="location">Location</label>
+                <label for="location">Location : </label>
                 <input
                   type="text"
                   id="location"
@@ -149,7 +167,7 @@
               </div>
 
               <div class="field biography">
-                <label for="bio">Biography</label>
+                <label for="bio">Biography : </label>
                 <textarea
                   id="bio"
                   name="bio"

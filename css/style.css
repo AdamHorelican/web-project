@@ -20,7 +20,6 @@ main {
 }
 
 /* Big title at the top */
-
 h1 {
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   text-align: center;
@@ -29,8 +28,6 @@ h1 {
 }
 
 /* --- FORM LAYOUT --- */
-/* The form container */
-
 .registration-form {
   width: 100%;
 }
@@ -66,7 +63,6 @@ h1 {
 }
 
 /* --- Fields and inputs --- */
-/* Space under each field */
 .field {
   margin-bottom: 1rem;
 }
@@ -92,11 +88,83 @@ textarea {
   font: inherit;
 }
 
-/* Range slider design */
+/* Ranged slider */
 input[type="range"] {
-  width: 100%;
-  background: transparent;
-  accent-color: #00b4db;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 90%;
+  height: 6px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #00b4db 0%, #00b4db 0%, #ffffff55 0%, #ffffff55 100%);
+  outline: none;
+  transition: background 0.2s ease;
+}
+
+/* When slider moves, fill background according to value */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #00b4db 0%, #00b4db var(--range-progress, 0%), #ffffff55 var(--range-progress, 0%), #ffffff55 100%);
+}
+
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #00b4db 0%, #00b4db var(--range-progress, 0%), #ffffff55 var(--range-progress, 0%), #ffffff55 100%);
+}
+
+/* Slider thumb (the handle) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffe287;
+  border: 2px solid #004856;
+  cursor: pointer;
+  margin-top: -6px;
+  transition: transform 0.1s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffe287;
+  border: 2px solid #004856;
+  cursor: pointer;
+}
+
+/* Dynamically update fill width using CSS variable */
+input[type="range"][value] {
+  --min: 18;
+  --max: 90;
+  --val: calc((var(--value, 18) - var(--min)) / (var(--max) - var(--min)) * 100%);
+  --range-progress: calc((attr(value number) - var(--min)) / (var(--max) - var(--min)) * 100%);
+}
+
+/* Range value box beside slider */
+.range-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+#ageValue,
+.range-wrapper output {
+  background: rgba(255, 255, 255, 0.9);
+  color: #004856;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  min-width: 2.5rem;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Put radio/checkbox next to its text */
@@ -117,12 +185,8 @@ input[type="range"] {
 }
 
 /* --- Right side layout --- */
-/* Right column grid */
-
-.right {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem 1.5rem;
+.full-width-right {
+  grid-column: 1 / -1;
 }
 
 .biography {
@@ -162,13 +226,11 @@ textarea:valid {
 }
 
 /* Submit button */
-/* Area for the button */
 .form-actions {
   text-align: center;
   margin-top: 1.5rem;
 }
 
-/* Button design */
 .form-actions button {
   background: #ffe287;
   color: #004856;
@@ -181,7 +243,7 @@ textarea:valid {
   transition: transform 0.05s ease-in, box-shadow 0.05s ease-in;
 }
 
-/* Effect when hovering or focusing */
+/* Hover/focus effects */
 .form-actions button:hover,
 .form-actions button:focus-visible {
   transform: translateY(-1px);
