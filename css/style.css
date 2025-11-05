@@ -88,6 +88,40 @@ textarea {
   font: inherit;
 }
 
+input[type="date"] {
+  box-sizing: border-box;
+  padding-right: 2.5rem;
+  /* allow the browser to keep its native control (so the calendar icon remains) */
+  -webkit-appearance: auto;
+  appearance: auto;
+}
+
+input[type="date"]::-webkit-clear-button,
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 0.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  color: inherit;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.field {
+  position: relative;
+}
+
+/* Extra safety for small phones: give more right padding so the icon never gets clipped */
+@media (max-width: 420px) {
+  input[type="date"] {
+    padding-right: 3.2rem;
+    font-size: 0.95rem;
+  }
+}
+
 /* Ranged slider */
 input[type="range"] {
   -webkit-appearance: none;
